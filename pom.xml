@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>dev.daniellavoie.ksqldb</groupId>
+  <artifactId>ksqldb-java-client-parent</artifactId>
+  <version>0.2.0-SNAPSHOT</version>
+  <packaging>pom</packaging> 
+  <name>Non-Blocking Reactive Java Client for ksqlDB - Parent</name>
+  <description>Non-Blocking Reactive Java Client for ksqlDB - Parent</description>
+  <url>https://github.com/daniellavoie/ksqldb-java-client</url>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>daniellavoie</id>
+      <name>Daniel Lavoie</name>
+      <email>dlavoie@live.ca</email>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/daniellavoie/ksqldb-java-client</connection>
+    <developerConnection>scm:git:git://github.com/daniellavoie/ksqldb-java-client</developerConnection>
+    <url>https://github.com/daniellavoie/ksqldb-java-client</url>
+  </scm>
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/daniellavoie/ksqldb-java-client/issues</url>
+  </issueManagement>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+  <modules>
+    <module>client</module>
+  </modules>
+  
+
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.2.0</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.1.1</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>dev.daniellavoie.ksqldb</groupId>
+        <artifactId>ksqldb-java-client</artifactId>
+        <version>${project.version}</version>
+      </dependency> 
+    </dependencies> 
+  </dependencyManagement>
+</project>
